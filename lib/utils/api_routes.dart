@@ -1,6 +1,6 @@
 // api_routes.dart
 class ApiRoutes {
-  static const String baseUrl = "https://simon_final.devnarviz.com/api";
+  static const String baseUrl = "https://impugnatraf.devnarviz.com/api";
   static const String login = "/login";
   static const String register = "/register";
   static const String getBanners = "/banners";
