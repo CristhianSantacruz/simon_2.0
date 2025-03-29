@@ -33,17 +33,9 @@ class _MyProfilesState extends State<MyProfiles> {
   }
 
   void deleteProfile(int profileId) async {
-  //  final userProvider = Provider.of<UserProvider>(context, listen: false);
-   // final vehicleProvier = Provider.of<VehicleProvider>(context, listen: false);
-   // final documentGeneratedProvider =Provider.of<DocumentsGenerateProvider>(context, listen: false);
     try {
       await _profileServices.deleteProfile(profileId);
       List<ProfileModel> updatedProfiles = await fetchDataProfiles();
-     // ProfileModel? profilePrincipal = updatedProfiles.firstWhere((element) => element.profileModelDefault == 1);
-     // userProvider.setProfile(profilePrincipal.id);
-     //  vehicleProvier.resetAndFetchVehicles(userProvider.user.id, userProvider.currentProfile);
-     //  documentGeneratedProvider.getDocumentGenerates(userProvider.user.id, userProvider.currentProfile);
-
       setState(() {
         _futureProfiles = Future.value(updatedProfiles);
       });

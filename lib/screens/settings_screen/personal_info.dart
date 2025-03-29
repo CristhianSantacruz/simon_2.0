@@ -294,8 +294,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
   @override
   Widget build(BuildContext context) {
-    final UserProvider userProvider =
-        Provider.of<UserProvider>(context, listen: false);
+    final UserProvider userProvider = Provider.of<UserProvider>(context, listen: false);
     return Observer(builder: (context) {
       return Scaffold(
         appBar: AppBar(
@@ -567,114 +566,119 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   ],
                 ),
               ),
-        bottomNavigationBar: Padding(
-            padding: const EdgeInsets.all(16),
-            child: _editFiels == false
-                ? widget.profileId == null
-                    ? Row(
-                        children: [
-                          Expanded(
-                            child: AppButton(
-                              elevation: 2,
-                              onTap: () {
-                                if(widget.profileId == null){
-                                  showDialog(context: context, builder: (BuildContext context) {
-                                    return  CustomAlertDialog(
-                                      title: "!Importante!",
-                                      content: "Recuerda que esta informacion es muy importante para el flujo de actividades dentro de Simón",
-                                      iconData: Icons.info,
-                                      onPressedRoute: (){
-                                        Navigator.pop(context);
-                                          setState(() {
-                                  _editFiels = true;
-                                });
-                                      },
-                                    );
-                                  });
-                                  return;
-                                }
-                                setState(() {
-                                  _editFiels = true;
-                                });
-                                
-                              },
-                              color: !_editFiels
-                                  ? simonNaranja
-                                  : simon_finalPrimaryColor,
-                              shapeBorder: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(DEFAULT_RADIUS)),
-                              child: FittedBox(
-                                fit : BoxFit.scaleDown,
-                                child: Text(
-                                  widget.profileId != null
-                                      ? 'Editar Perfil'
-                                      : 'Editar Usuario',
-                                  style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                              width: 20), // Espaciado entre los botones
-                          Expanded(
-                            child: AppButton(
-                              elevation: 2,
-                              onTap: () {
-                                final userRegister = UserModelRegiser(
-                                  name: nameController.text,
-                                  lastName: lastNameController.text,
-                                  typeIdentification:
-                                      typeIdentificationController.text,
-                                  maritalStatus: maritalStatusController.text,
-                                  identification:
-                                      identificationController.text,
-                                  profession_id: currentProfessionId,
-                                  email: emailController.text,
-                                  sexo: sexoController.text == "SIN SEXO"
-                                      ? 'HOMBRE'
-                                      : sexoController.text,
-                                  phone: phoneController.text,
-                                  birthDate: DateTime.parse(
-                                      birthDateController.text),
-                                  nombramiento: nombramientoController.text,
-                                );
-                               //  ChangePasswordScreen(userModelRegiser: userRegister).launch(context);
+        bottomNavigationBar: _editFiels == false
+            ? widget.profileId == null
+                ? Row(
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding:  widget.profileId == null ? const EdgeInsets.only(left: 16, right: 16) : const EdgeInsets.all(0),
+                          child: AppButton(
+                            elevation: 2,
+                            onTap: () {
+                              if(widget.profileId == null){
                                 showDialog(context: context, builder: (BuildContext context) {
                                   return  CustomAlertDialog(
                                     title: "!Importante!",
-                                    content: "Recuerda que esta informacion es muy importante para el ingreso posterior a la app",
+                                    content: "Recuerda que esta informacion es muy importante para el flujo de actividades dentro de Simón",
                                     iconData: Icons.info,
                                     onPressedRoute: (){
                                       Navigator.pop(context);
-                                      ChangePasswordScreen(userModelRegiser: userRegister).launch(context);
+                                        setState(() {
+                                _editFiels = true;
+                              });
                                     },
                                   );
                                 });
-
-                              },
-                              color: simon_finalPrimaryColor,
-                              shapeBorder: RoundedRectangleBorder(
-                                  borderRadius:
-                                      BorderRadius.circular(DEFAULT_RADIUS)),
-                              child: const FittedBox(
-                                fit: BoxFit.scaleDown,
-                                child: Text(
-                                  'Cambiar Contraseña',
-                                  style: TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.w500,
-                                      color: Colors.white),
-                                ),
+                                return;
+                              }
+                              setState(() {
+                                _editFiels = true;
+                              });
+                              
+                            },
+                            color: !_editFiels
+                                ? simonNaranja
+                                : simon_finalPrimaryColor,
+                            shapeBorder: RoundedRectangleBorder(
+                                borderRadius:
+                                    BorderRadius.circular(DEFAULT_RADIUS)),
+                            child: FittedBox(
+                              fit : BoxFit.scaleDown,
+                              child: Text(
+                                widget.profileId != null
+                                    ? 'Editar Perfil'
+                                    : 'Editar Usuario',
+                                style: const TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white),
                               ),
                             ),
                           ),
-                        ],
-                      )
-                    : AppButton(
+                        ),
+                      ),
+                      const SizedBox(
+                          width: 20), // Espaciado entre los botones
+                      Expanded(
+                        child: AppButton(
+                          elevation: 2,
+                          onTap: () {
+                            final userRegister = UserModelRegiser(
+                              name: nameController.text,
+                              lastName: lastNameController.text,
+                              typeIdentification:
+                                  typeIdentificationController.text,
+                              maritalStatus: maritalStatusController.text,
+                              identification:
+                                  identificationController.text,
+                              profession_id: currentProfessionId,
+                              email: emailController.text,
+                              sexo: sexoController.text == "SIN SEXO"
+                                  ? 'HOMBRE'
+                                  : sexoController.text,
+                              phone: phoneController.text,
+                              birthDate: DateTime.parse(
+                                  birthDateController.text),
+                              nombramiento: nombramientoController.text,
+                            );
+                           //  ChangePasswordScreen(userModelRegiser: userRegister).launch(context);
+                            showDialog(context: context, builder: (BuildContext context) {
+                              return  CustomAlertDialog(
+                                title: "!Importante!",
+                                content: "Recuerda que esta informacion es muy importante para el ingreso posterior a la app",
+                                iconData: Icons.info,
+                                onPressedRoute: (){
+                                  Navigator.pop(context);
+                                  ChangePasswordScreen(userModelRegiser: userRegister).launch(context);
+                                },
+                              );
+                            });
+        
+                          },
+                          color: simon_finalPrimaryColor,
+                          shapeBorder: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.circular(DEFAULT_RADIUS)),
+                          child: const FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child: Text(
+                              'Cambiar Contraseña',
+                              style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  )
+                : Container(
+                  width: double.infinity,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: AppButton(
                         elevation: 2,
                         onTap: () {
                           setState(() {
@@ -695,102 +699,104 @@ class _PersonalInfoState extends State<PersonalInfo> {
                                 fontSize: 14,
                                 fontWeight: FontWeight.w500,
                                 color: Colors.white)),
-                      ).expand()
-                : Row(
-                    children: [
-                      Expanded(
-                        child: AppButton(
-                          onTap: () {
-                            setState(() {
-                              _editFiels = false;
-                            });
-                          },
-                          color: simon_finalSecondaryColor,
-                          shapeBorder: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(DEFAULT_RADIUS)),
-                          child: const Text(
-                            "Cancelar",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: simon_finalPrimaryColor),
-                          ),
-                        ),
                       ),
-                      20.width,
-                      Expanded(
-                        child: AppButton(
-                          onTap: () {
-                            if (_editFiels == true) {
-                              if (_formKey.currentState!.validate()) {
-                                if (widget.profileId != null) {
-                                  final profileModel = ProfileModelRegister(
-                                    sexo: sexoController.text == "SIN SEXO"
-                                        ? 'HOMBRE'
-                                        : sexoController.text,
-                                    name: nameController.text,
-                                    lastName: lastNameController.text,
-                                    typeIdentification:
-                                        typeIdentificationController.text,
-                                    maritalStatus: maritalStatusController.text,
-                                    identification:
-                                        identificationController.text,
-                                    professionId: currentProfessionId,
-                                    email: emailController.text,
-                                    phone: phoneController.text,
-                                    birthDate: DateTime.parse(
-                                        birthDateController.text),
-                                    nombramiento: nombramientoController.text,
-                                    userId: userProvider.user.id,
-                                  );
-
-                                  debugPrint(
-                                      "Datos finales del usuario a editar ${profileModel.toJson()}");
-                                  updateDataProfile(
-                                      profileModel, widget.profileId!);
-                                } else {
-                                  final userRegister = UserModelRegiser(
-                                    name: nameController.text,
-                                    lastName: lastNameController.text,
-                                    typeIdentification:
-                                        typeIdentificationController.text,
-                                    maritalStatus: maritalStatusController.text,
-                                    identification:
-                                        identificationController.text,
-                                    profession_id: currentProfessionId,
-                                    email: emailController.text,
-                                    sexo: sexoController.text == "SIN SEXO"
-                                        ? 'HOMBRE'
-                                        : sexoController.text,
-                                    phone: phoneController.text,
-                                    birthDate: DateTime.parse(
-                                        birthDateController.text),
-                                    nombramiento: nombramientoController.text,
-                                  );
-                                  debugPrint(
-                                      "Datos finales del usuario a editar ${userRegister.toJson()}");
-                                  updateDataUserPrincipal(
-                                      userRegister, userProvider.user.id);
-                                }
-                              }
+                  ),
+                )
+            : Row(
+                children: [
+                  Expanded(
+                    child: AppButton(
+                      onTap: () {
+                        setState(() {
+                          _editFiels = false;
+                        });
+                      },
+                      color: simon_finalSecondaryColor,
+                      shapeBorder: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(DEFAULT_RADIUS)),
+                      child: const Text(
+                        "Cancelar",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: simon_finalPrimaryColor),
+                      ),
+                    ),
+                  ),
+                  20.width,
+                  Expanded(
+                    child: AppButton(
+                      onTap: () {
+                        if (_editFiels == true) {
+                          if (_formKey.currentState!.validate()) {
+                            if (widget.profileId != null) {
+                              final profileModel = ProfileModelRegister(
+                                sexo: sexoController.text == "SIN SEXO"
+                                    ? 'HOMBRE'
+                                    : sexoController.text,
+                                name: nameController.text,
+                                lastName: lastNameController.text,
+                                typeIdentification:
+                                    typeIdentificationController.text,
+                                maritalStatus: maritalStatusController.text,
+                                identification:
+                                    identificationController.text,
+                                professionId: currentProfessionId,
+                                email: emailController.text,
+                                phone: phoneController.text,
+                                birthDate: DateTime.parse(
+                                    birthDateController.text),
+                                nombramiento: nombramientoController.text,
+                                userId: userProvider.user.id,
+                              );
+        
+                              debugPrint(
+                                  "Datos finales del usuario a editar ${profileModel.toJson()}");
+                              updateDataProfile(
+                                  profileModel, widget.profileId!);
+                            } else {
+                              final userRegister = UserModelRegiser(
+                                name: nameController.text,
+                                lastName: lastNameController.text,
+                                typeIdentification:
+                                    typeIdentificationController.text,
+                                maritalStatus: maritalStatusController.text,
+                                identification:
+                                    identificationController.text,
+                                profession_id: currentProfessionId,
+                                email: emailController.text,
+                                sexo: sexoController.text == "SIN SEXO"
+                                    ? 'HOMBRE'
+                                    : sexoController.text,
+                                phone: phoneController.text,
+                                birthDate: DateTime.parse(
+                                    birthDateController.text),
+                                nombramiento: nombramientoController.text,
+                              );
+                              debugPrint(
+                                  "Datos finales del usuario a editar ${userRegister.toJson()}");
+                              updateDataUserPrincipal(
+                                  userRegister, userProvider.user.id);
                             }
-                          },
-                          color: simon_finalPrimaryColor,
-                          shapeBorder: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.circular(DEFAULT_RADIUS)),
-                          child: const Text(
-                            "Guardar",
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Colors.white),
-                          ),
-                        ),
-                      )
-                    ],
-                  )),
+                          }
+                        }
+                      },
+                      color: simon_finalPrimaryColor,
+                      shapeBorder: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.circular(DEFAULT_RADIUS)),
+                      child: const Text(
+                        "Guardar",
+                        style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.white),
+                      ),
+                    ),
+                  )
+                ],
+              ),
       );
     });
   }
