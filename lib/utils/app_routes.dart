@@ -1,0 +1,33 @@
+abstract class Routes {
+  static const String singIn = "/sing_in";
+  static const String singUp = "/sing_up";
+  static const String forgetPassword = "/forget_password";
+  static const String splash = "/splash";
+  static const String walkthrough = "/walkthrough";
+  static const String home = "/home";
+  static const String profile = "/profile";
+  static const String vehicles = "/vehicles";
+  static const String vehicle = "/vehicle";
+  static const String documents = "/documents";
+  static const String document = "/document";
+  static const String splashScreen = "/splash";
+  static const String impugnaMultas = "/impugna_multas";
+  static const String tramites = "/tramites";
+  static const String docsAcountAssociated = "/docs_cuenta";
+  static const String docsVehiculo = "/docs_vehiculo";
+  static const String docsImpugnacion = "/docs_impugnacion";
+  static const String impugnar = "/impugnar";
+  static const String createVehicle = "/create_vehicle";
+  static const String templates = "/templates";
+  static const String dashboard = "/dashboard";
+  static const String showfines = "/multas";
+  static const String docunmentGenerated = "/documents_generated";
+  static const String notifications = "/notifications";
+  static const String registerCar = "/register_car";
+  static const String viewVehicleDocument = "/view_vehicle_document";
+  static const String addAddress = "/add_address";
+  static const String directions = "/directions";
+  static const String signatureDoc = "/signature_doc";
+  static const String adminProfiles = "/admin_profiles";
+  static const String newSignIn = "/new_sign_in";
+}

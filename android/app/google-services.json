@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "143111867347",
+    "project_id": "simon-legal-app-e67aa",
+    "storage_bucket": "simon-legal-app-e67aa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:143111867347:android:bf85543e5637373efe7d26",
+        "android_client_info": {
+          "package_name": "com.simonlegal.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANPJCo-Oyba_i-k2YVbPQVVVzJ46i2ncA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
